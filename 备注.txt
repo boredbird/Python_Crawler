@@ -1,0 +1,31 @@
+
+####lesson2
+
+"""
+html=urllib.request.urlopen(url)
+#content=html.read().decode('gbk','ignore').encode('utf-8')
+#print(html)
+
+code=html.getcode()
+
+'''
+if code == 200:
+	print("网页正常")
+else:
+	print("网页出现问题")
+'''
+
+'''
+1、传入网址，网址类型一定是字符串
+2、传入的，本地网页保存路径+文件名
+3、一个函数的调用，我们可以任意来定义这个函数的行为，
+但是一定要保证这个函数有3个参数。
+a.到目前为止此传递的数据块数量
+b.是每个数据块的大小，单位byte，字节
+c.
+
+'''
+代理ip
+假的头部信息
+
+"""
