@@ -14,17 +14,17 @@ and they lived at the bottom of a well.</p>
 """
 
 soup = BeautifulSoup(html_doc)
-print soup.prettify()
-print '##################'
-print soup.find_all('a')
-print soup.find(id="link3")
+# print soup.prettify()
+# print '##################'
+# print soup.find_all('a')
+# print soup.find(id="link3")
 
 #  从文档中找到所有a标签的链接
-for link in soup.find_all('a'):
-    print(link.get('href'))
+# for link in soup.find_all('a'):
+#     print(link.get('href'))
 
 #  从文档中获取所有文字内容
-print soup.get_text()
+# print soup.get_text()
 
 #  如果tag中包含多个字符串 [2] ,可以使用 .strings 来循环获取
 
