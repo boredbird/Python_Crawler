@@ -1,18 +1,48 @@
-import requests
-import urllib
-import chardet
-from urllib.request import urlopen
+# coding:utf-8
 
-import sysprint(sys.stdin.encoding)
-print(sys.stdout.encoding)
-'''
-exp1 = re.compile("(?<a href="https://www.baidu.com/s?wd=isu&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YLrH7bP1fYnHIbPAfkrjP90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6K1TL0qnfK1TL0z5HD0IgF_5y9YIZ0lQzqlpA-bmyt8mh7GuZR8mvqVQL7dugPYpyq8Q1D1rjcvrHfknjDYnWn3nH03nW0" target="_blank" class="baidu-highlight">isu</a>)<tr[^>]*>(.*?)</tr>")
-exp2 = re.compile("(?<a href="https://www.baidu.com/s?wd=isu&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YLrH7bP1fYnHIbPAfkrjP90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6K1TL0qnfK1TL0z5HD0IgF_5y9YIZ0lQzqlpA-bmyt8mh7GuZR8mvqVQL7dugPYpyq8Q1D1rjcvrHfknjDYnWn3nH03nW0" target="_blank" class="baidu-highlight">isu</a>)<td[^>]*>(.*?)</td>")
-htmlSource = urllib.urlopen("<a href="http://cn-proxy.com/"" target="_blank">http://cn-proxy.com/"</a>).read()
-for row in exp1.findall(htmlSource):
-   print('===============')
-   for col in exp2.findall(row):
-       print col,
-   print('===============')
- '''
- print('中文')
+# 引入相关模块
+import requests
+from bs4 import BeautifulSoup
+import sys
+import requests
+import MySQLdb
+import time
+reload(sys)
+sys.setdefaultencoding('utf-8')
+today = time.strftime("%Y-%m-%d")
+
+#conn = MySQLdb.connect(host='10.83.4.117', user='root', passwd='123456', db='crawler', port=3306, use_unicode=True, charset="utf8")
+conn = MySQLdb.connect(host='localhost', user='root', passwd='123456', db='crawler', port=3306, use_unicode=True, charset="utf8")
+cur = conn.cursor()
+
+if __name__ == '__main__':
+    count = cur.execute('select stock_id from crawler.stock_list')
+    print count
+    result = cur.fetchmany(count)
+    for i in range(2):
+            print 'running ',i,result[i]
+            stock_id = result[i][0]
+            url = requests.get("https://gupiao.baidu.com/stock/" + stock_id + ".html?from=aladingpc")
+            url.encoding = 'utf-8'
+
+            # 请求URL，获取其text文本
+            wbdata = url.text
+
+            # 对获取到的文本进行解析
+            soup = BeautifulSoup(wbdata, 'lxml')
+
+            # 从解析文件中通过select选择器定位指定的元素，返回一个列表
+            news_titles = soup.select(".line1 dl dt")
+            news_value = soup.select(".line1 dl dd")
+
+            for i in range(len(news_titles)):
+             # print news_titles[i].get_text(), news_value[i].get_text()
+             cur.execute(
+              "insert into crawler.stock_pd_price(stock_no,stock_index,index_value,date) values(%s,%s,%s,%s)",
+              (stock_id, news_titles[i].get_text(), news_value[i].get_text(), today))
+             conn.commit()
+
+
+    cur.close()
+    conn.commit()
+    conn.close()

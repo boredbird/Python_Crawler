@@ -2,6 +2,26 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
+      <paths name="10.83.2.132">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$/../Python_Exercise_Code" web="/" />
+            <mapping local="$PROJECT_DIR$/../Python_ML_Code" web="/" />
+            <mapping local="$PROJECT_DIR$/../Python_Tourtial_Turling" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Copy of project-level server '10.83.2.132'">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$/../Python_Exercise_Code" web="/" />
+            <mapping local="$PROJECT_DIR$/../Python_ML_Code" web="/" />
+            <mapping local="$PROJECT_DIR$/../Python_Tourtial_Turling" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="Copy of project-level server 'VM_Ubuntu_Py2.7'">
         <serverdata>
           <mappings>

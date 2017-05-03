@@ -11,7 +11,8 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 today = time.strftime("%Y-%m-%d")
 
-conn = MySQLdb.connect(host='10.83.4.61', user='root', passwd='123456', db='crawler', port=3306, use_unicode=True, charset="utf8")
+#conn = MySQLdb.connect(host='localhost', user='root', passwd='123456', db='crawler', port=3306, use_unicode=True, charset="utf8")
+conn = MySQLdb.connect(host='localhost', user='root', passwd='123456', db='crawler', port=3306, use_unicode=True, charset="utf8")
 cur = conn.cursor()
 
 def get_stock_price(stock_id):
