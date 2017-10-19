@@ -5,9 +5,12 @@
     <content url="file://$MODULE_DIR$/../Python_Exercise_Code" />
     <content url="file://$MODULE_DIR$/../Python_ML_Code" />
     <content url="file://$MODULE_DIR$/../Python_Tourtial_Turling" />
-    <orderEntry type="jdk" jdkName="Python 2.7.13 (D:\Python27\python.exe)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 2.7.13 (D:\ProgramData\Anaconda2\python.exe)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="CaiNiao-DemandForecast-StoragePlaning" />
     <orderEntry type="module" module-name="Python_Data_API" />
+    <orderEntry type="module" module-name="scikit-learn-book" />
+    <orderEntry type="module" module-name="scikit-learn-book" />
+    <orderEntry type="module" module-name="EasyML" />
   </component>
 </module>
