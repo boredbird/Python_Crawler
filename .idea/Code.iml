@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
-    <content url="file://$MODULE_DIR$/../Python_Exercise_Code" />
-    <content url="file://$MODULE_DIR$/../Python_ML_Code" />
-    <content url="file://$MODULE_DIR$/../Python_Tourtial_Turling" />
-    <orderEntry type="jdk" jdkName="Python 2.7.13 (D:\ProgramData\Anaconda2\python.exe)" jdkType="Python SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="CaiNiao-DemandForecast-StoragePlaning" />
     <orderEntry type="module" module-name="Python_Data_API" />
